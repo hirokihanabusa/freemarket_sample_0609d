@@ -4,7 +4,7 @@ set :application, 'freemarket_sample_0609d'
 
 set :repo_url,  'git@github.com:Atsushi-Kuwabara/freemarket_sample_0609d.git'
 
-set :linked_dirs, fetch(:linked_dirs, []).push('shared/config/master.key', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_dirs, fetch(:linked_dirs, []).push('config/master.key', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1' 
