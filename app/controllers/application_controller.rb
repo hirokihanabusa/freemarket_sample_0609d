@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
+      # TODO ベーシック認証のパスが通らない不具合解決
       #username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
       username == 'admin' && password == '2222'
     end
