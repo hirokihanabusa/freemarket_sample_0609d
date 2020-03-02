@@ -41,7 +41,7 @@ class CardController < ApplicationController
 
     if card.blank?
     else
-      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      Payjp.api_key = Rails.application.credentials.payjp(:PAYJP_SECRET_KEY)
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
