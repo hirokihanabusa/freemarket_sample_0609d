@@ -11,7 +11,7 @@ class DealsController < ApplicationController
 
   def new
     @deal = new_with
-    Payjp.api_key = Rails.application.credentials.payjp_secret_key
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     if Card.last
       customer = Payjp::Customer.retrieve(Card.last.customer_id)
       @card = customer.cards.first
@@ -19,7 +19,7 @@ class DealsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials.payjp_secret_key
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     # card = Card.where(user_id: current_user.id).first
     card = Card.where(user_id: current_user.id).first
     @deal = new_with
