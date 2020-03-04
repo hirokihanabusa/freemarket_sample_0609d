@@ -11,7 +11,7 @@ class DealsController < ApplicationController
 
   def new
     @deal = new_with
-    Payjp.api_key = Rails.application.credentials.payjp(:PAYJP_SECRET_KEY)
+    Payjp::api_key = ENV['PAYJP_PRIVATE_KEY']
     if Card.last
       customer = Payjp::Customer.retrieve(Card.last.customer_id)
       @card = customer.cards.first
