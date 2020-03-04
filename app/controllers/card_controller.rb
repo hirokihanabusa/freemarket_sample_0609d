@@ -4,7 +4,7 @@ class CardController < ApplicationController
 
   def new
     # card = Card.where(user_id: current_user.id)
-    card = Card.where(user_id: 1)
+    card = Card.where(user_id: 2)
     @item_id = params["item_id"]
   end
 
@@ -37,7 +37,7 @@ class CardController < ApplicationController
 
   def delete
     # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 1).first
+    card = Card.where(user_id: 2).first
 
     if card.blank?
     else
@@ -51,12 +51,12 @@ class CardController < ApplicationController
 
   def show
     # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 1).first
+    card = Card.where(user_id: 2).first
 
     if card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = Rails.application.credentials.payjp(:PAYJP_SECRET_KEY)
+      Payjp.api_key = Rails.application.credentials.payjp_secret_key
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
