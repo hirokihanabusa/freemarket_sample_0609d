@@ -3,8 +3,7 @@ class CardController < ApplicationController
   require "payjp"
 
   def new
-    # card = Card.where(user_id: current_user.id)
-    card = Card.where(user_id: 2)
+    card = Card.where(user_id: current_user.id)
     @item_id = params["item_id"]
   end
 
@@ -20,8 +19,7 @@ class CardController < ApplicationController
         card: params['payjp-token']
       )
 
-      # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      @card = Card.new(user_id: 2, customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
 
       if @card.save
         if params["item_id"].present?
@@ -36,8 +34,7 @@ class CardController < ApplicationController
   end
 
   def delete
-    # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 2).first
+    card = Card.where(user_id: current_user.id).first
 
     if card.blank?
     else
@@ -50,8 +47,7 @@ class CardController < ApplicationController
   end
 
   def show
-    # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 2).first
+    card = Card.where(user_id: current_user.id).first
 
     if card.blank?
       redirect_to action: "new"
