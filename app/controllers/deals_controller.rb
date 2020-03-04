@@ -19,7 +19,7 @@ class DealsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials.payjp(:PAYJP_SECRET_KEY)
+    Payjp.api_key = Rails.application.credentials.payjp_secret_key
     # card = Card.where(user_id: current_user.id).first
     card = Card.where(user_id: current_user.id).first
     @deal = new_with
