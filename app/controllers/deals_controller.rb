@@ -13,7 +13,7 @@ class DealsController < ApplicationController
     @deal = new_with
     Payjp.api_key = Rails.application.credentials.payjp_api_key
     if Card.last
-      customer = Payjp::Customer.retrieve(Card.last.customer_id)
+      customer = Payjp::Customer.retrieve(Card.customer_id)
       @card = customer.cards.first
     end
   end
