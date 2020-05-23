@@ -1,7 +1,7 @@
 # server-based syntax
 # ======================
 
-server '18.178.207.218', user: 'ec2-user', roles: %w{app db web}
+server '54.250.10.51', user: 'ec2-user', roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
