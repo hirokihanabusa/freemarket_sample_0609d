@@ -11,6 +11,6 @@ CarrierWave.configure do |config|
     aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
     region: 'ap-northeast-1'
   }
-  config.fog_directory = 'freemarket-sample-0609d'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-sample-0609d'
+  config.fog_directory = 'mercari0609d'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari0609d'
 end
